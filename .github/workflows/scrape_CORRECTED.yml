@@ -1,4 +1,24 @@
-name: Daily Google Maps Scraping - Opening Soon, No Website
+name: Daily Google Maps Scraping
+
+on:
+  schedule:
+      - cron: '0 8 * * *'
+        workflow_dispatch:
+        
+        jobs:
+          scrape:
+              runs-on: ubuntu-latest
+                  steps:
+                        - uses: actions/checkout@v4
+                              - uses: actions/setup-python@v4
+                                      with:
+                                                python-version: '3.11'
+                                                      - name: Install dependencies
+                                                              run: |
+                                                                        python -m pip install --upgrade pip
+                                                                                  pip install selenium webdriver-manager requests
+                                                                                        - name: Run scraper
+                                                                                                run: python3 scripts/1_google_maps_scraper_CORRECTED.pyname: Daily Google Maps Scraping - Opening Soon, No Website
 
 on:
   schedule:
